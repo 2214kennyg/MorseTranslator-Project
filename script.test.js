@@ -64,7 +64,7 @@ describe("Testing english to morse translation", () => {
     });
     it("Throws an error if input contains symbols", () => {
         expect(() => {
-            englishToMorse("/?@$-_");
+            englishToMorse("/?@$_");
         }).toThrow(invalidSymbolError);
         expect(() => {
             englishToMorse("asd'(?>,>");
@@ -73,10 +73,10 @@ describe("Testing english to morse translation", () => {
     it("Throws an error for non-English characters or morse", () => {
         expect(() => {
             englishToMorse("..- --.");
-        }).toThrow(otherInvalidErrorEnglish);
+        }).toThrow(otherInvalidError);
         expect(() => {
             englishToMorse("aa .- lo --.");
-        }).toThrow(otherInvalidErrorEnglish);
+        }).toThrow(otherInvalidError);
     });
 });
 
@@ -97,18 +97,18 @@ describe("Testing morse to english translation", () => {
     });
     it("Throws an error if input contains symbols", () => {
         expect(() => {
-            morseToEnglish("/?@$_");
+            morseToEnglish("/ ? @ $ _");
         }).toThrow(invalidSymbolError);
         expect(() => {
-            morseToEnglish("..-- '(?>,> .--.");
+            morseToEnglish(".- ' ? > , > .. -.");
         }).toThrow(invalidSymbolError);
     });
     it("Throws an error if input contains non-morse code, including English", () => {
         expect(() => {
             morseToEnglish("aaaaooo");
-        }).toThrow(invalidSymbolError);
+        }).toThrow(otherInvalidError);
         expect(() => {
             morseToEnglish("abb ..-- asad .--.");
-        }).toThrow(invalidSymbolError);
+        }).toThrow(otherInvalidError);
     });
 });

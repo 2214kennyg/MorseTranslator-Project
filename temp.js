@@ -9,18 +9,18 @@ import {
 
 const invalidNumberError = new Error("Input cannot include numbers");
 const invalidSymbolError = new Error("Input cannot contain symbols");
-const otherInvalidErrorEnglish = new Error("Input must be English");
+const otherInvalidError = new Error("Input must be English");
 
-const englishToMorse = (inputText) => {
-    const translateArr = inputText.toUpperCase().split("");
+const morseToEnglish = (inputText) => {
+    const translateArr = inputText.split(" ");
     const findNumberInput = translateArr.some((value) =>
         numberArr.includes(value)
     );
     const findSymbolInput = translateArr.some((value) =>
         symbolArr.includes(value)
     );
-    const findOtherInput = translateArr.some((value) =>
-        arrEnglish.includes(value)
+    const findOtherInputMorse = translateArr.every((value) =>
+        arrMorse.includes(value)
     );
 
     if (findNumberInput) {
@@ -29,21 +29,22 @@ const englishToMorse = (inputText) => {
     if (findSymbolInput) {
         throw invalidSymbolError;
     }
-    if (!findOtherInput) {
-        throw otherInvalidErrorEnglish;
+    if (!findOtherInputMorse) {
+        throw otherInvalidError;
     } else
         return translateArr
             .reduce((acc, value) => {
-                return [...acc, englishMorse[value]];
+                return [...acc, morseEnglish[value]];
             }, [])
-            .join(" ");
+            .join("");
 };
 
-const translateArr = " ..- --. ..-".split(" ");
-const findOtherInput = translateArr.every((value) => arrMorse.includes(value));
+const translateArr = ".- '(?>,> .. -.".split("");
+const findOtherInput = translateArr.some((value) => symbolArr.includes(value));
 
 console.log(translateArr);
 console.log(findOtherInput);
+console.log(morseToEnglish(".- '(?>,> .. -."));
 
 // accounts for numbers (input.value returns strings, need to filter)
 // value.match(/[A-Z]/gi);
@@ -63,8 +64,6 @@ console.log(findOtherInput);
 //         return [...acc, morseEnglish[value]];
 //     }, [])
 // );
-
-console.log(englishToMorse("aa lo"));
 
 // const select = (arr, obj) =>
 //     arr.reduce(
