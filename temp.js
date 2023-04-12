@@ -50,6 +50,8 @@ console.log(findOtherInput);
 // returns an array of matched things
 // value.includes(/[A-Z]/gi);
 // doesn't work for regex
+// const testMsg = document.createTextNode("some stuff to read");
+// output.appendChild(testMsg);
 
 // console.log(
 //     translateArr.reduce((acc, value) => {

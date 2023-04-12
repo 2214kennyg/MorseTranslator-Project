@@ -9,11 +9,8 @@ import {
 
 export const invalidNumberError = new Error("Input cannot include numbers");
 export const invalidSymbolError = new Error("Input cannot contain symbols");
-export const otherInvalidErrorEnglish = new Error(
-    "Input must all be in English"
-);
-export const otherInvalidErrorMorse = new Error(
-    "Input must all be Morse without extra spaces"
+export const otherInvalidError = new Error(
+    "Input must all be in English or Morse"
 );
 // determine if input is morse or english
 
@@ -36,7 +33,7 @@ export const englishToMorse = (inputText) => {
         throw invalidSymbolError;
     }
     if (!findOtherInputEnglish) {
-        throw otherInvalidErrorEnglish;
+        throw otherInvalidError;
     } else
         return translateArr
             .reduce((acc, value) => {
@@ -64,7 +61,7 @@ export const morseToEnglish = (inputText) => {
         throw invalidSymbolError;
     }
     if (!findOtherInputMorse) {
-        throw otherInvalidErrorMorse;
+        throw otherInvalidError;
     } else
         return translateArr
             .reduce((acc, value) => {

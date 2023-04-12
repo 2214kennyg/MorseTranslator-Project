@@ -3,8 +3,7 @@ import {
     morseToEnglish,
     invalidNumberError,
     invalidSymbolError,
-    otherInvalidErrorEnglish,
-    otherInvalidErrorMorse,
+    otherInvalidError,
 } from "./script.js";
 
 // handle spaces, handle other characters, explore edge cases?
@@ -14,6 +13,33 @@ import {
 //     expect(findNumberInput)
 //   })
 // })
+
+// describe("Testing to find correct input", () => {
+//     it("Throws an error if input contains numbers", () => {
+//         expect(() => {
+//             englishToMorse("3");
+//         }).toThrow(invalidNumberError);
+//         expect(() => {
+//             englishToMorse("l33t sp33k");
+//         }).toThrow(invalidNumberError);
+//     });
+//     it("Throws an error if input contains symbols", () => {
+//         expect(() => {
+//             englishToMorse("/?@$-_");
+//         }).toThrow(invalidSymbolError);
+//         expect(() => {
+//             englishToMorse("asd'(?>,>");
+//         }).toThrow(invalidSymbolError);
+//     });
+//     it("Throws an error for non-English characters or mixed with morse", () => {
+//         expect(() => {
+//             englishToMorse("..- --.");
+//         }).toThrow(otherInvalidError);
+//         expect(() => {
+//             englishToMorse("aa .- lo --.");
+//         }).toThrow(otherInvalidError);
+//     });
+// });
 
 describe("Testing english to morse translation", () => {
     test("Should correctly translate words", () => {
