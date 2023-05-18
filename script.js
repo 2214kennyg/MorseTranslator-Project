@@ -63,9 +63,12 @@ export const morseToEnglish = (inputText) => {
     if (!findOtherInputMorse) {
         throw otherInvalidError;
     } else
-        return translateArr
-            .reduce((acc, value) => {
-                return [...acc, morseEnglish[value]];
-            }, [])
-            .join("");
+        return (
+            translateArr
+                // .map((char) => morseEnglish(char))
+                .reduce((acc, value) => {
+                    return [...acc, morseEnglish[value]];
+                }, [])
+                .join("")
+        );
 };
