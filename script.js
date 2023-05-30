@@ -35,11 +35,14 @@ export const englishToMorse = (inputText) => {
     if (!findOtherInputEnglish) {
         throw otherInvalidError;
     } else
-        return translateArr
-            .reduce((acc, value) => {
-                return [...acc, englishMorse[value]];
-            }, [])
-            .join(" ");
+        return (
+            translateArr
+                .map((char) => englishMorse[char])
+                // .reduce((acc, value) => {
+                //     return [...acc, englishMorse[value]];
+                // }, [])
+                .join(" ")
+        );
 };
 
 export const morseToEnglish = (inputText) => {
@@ -63,9 +66,12 @@ export const morseToEnglish = (inputText) => {
     if (!findOtherInputMorse) {
         throw otherInvalidError;
     } else
-        return translateArr
-            .reduce((acc, value) => {
-                return [...acc, morseEnglish[value]];
-            }, [])
-            .join("");
+        return (
+            translateArr
+                .map((char) => morseEnglish[char])
+                // .reduce((acc, value) => {
+                //     return [...acc, morseEnglish[value]];
+                // }, [])
+                .join("")
+        );
 };
