@@ -24,7 +24,7 @@ export const englishMorse = {
     X: "-..-",
     Y: "-.--",
     Z: "--..",
-    " ": " ",
+    " ": "|",
 };
 
 export const morseEnglish = {
@@ -53,6 +53,7 @@ export const morseEnglish = {
     "-..-": "X",
     "-.--": "Y",
     "--..": "Z",
+    "|": " ",
 };
 
 export const numberArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -84,7 +85,7 @@ export const symbolArr = [
     "[",
     "}",
     "]",
-    "|",
 ];
+
 export const arrEnglish = Object.keys(englishMorse);
 export const arrMorse = Object.keys(morseEnglish);
